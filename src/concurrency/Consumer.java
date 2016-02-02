@@ -12,14 +12,12 @@ public class Consumer implements Runnable {
 		this.q = q;
 	}
 	public int consume() throws InterruptedException {
-		while(q.isEmpty()) {
-			synchronized(q) {
+		synchronized(q) {
+			while(q.isEmpty()) {
 				io.pl("No food!");
 				q.wait();
+				Thread.sleep(10);
 			}
-			Thread.sleep(50);
-		}
-		synchronized(q) {
 			q.notifyAll();
 			return q.remove(0);
 		}

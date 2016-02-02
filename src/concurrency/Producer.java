@@ -12,22 +12,26 @@ public class Producer implements Runnable {
 		this.q = q;
 	}
 	public void produce(int i) throws InterruptedException {
-		while(q.size() >= limit) {
-			synchronized(q) {
+		synchronized(q) {
+			while(q.size() >= limit) {
 				io.pl("Overstock!");
 				q.wait();
+				Thread.sleep(50);
 			}
-		}
-		synchronized(q) {
-			q.add(i);
-			q.notifyAll();
+			if(q.size() < limit) {
+				q.add(i);
+				q.notifyAll();
+			}
 		}
 	}
 	public void run() {
-		for(int food = 1; food < limit; food++) {
-			io.pl("Produced " + food);
+		int i = 0;
+		while(true) {
+			i++;
+			io.pl("Produced " + i);
 			try {
-				produce(food);
+				produce(i);
+				//Thread.sleep(10);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
