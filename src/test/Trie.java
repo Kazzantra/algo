@@ -20,7 +20,7 @@ public class Trie {
 		if(s != null && s.length() > 0) {
 			char[] ca = s.toCharArray();
 			for(char c : ca)
-				if(!('a' <= c && c <= 'z') && !('A' <= c && c <= 'Z'))
+				if(indexOf(c) == -1)
 					return false;
 			TrieNode node = dummy;
 			for(int i = 0; i < ca.length; i++) {
