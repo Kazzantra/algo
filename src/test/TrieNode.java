@@ -1,10 +1,10 @@
 package test;
 
 public class TrieNode {
-	public static int CHAR_NUM = 26;
+	public static int CHAR_NUM = 52;
 	public char c = '\0';
 	public TrieNode[] next;
-	public boolean isWordEnd = false;
+	public boolean isEnd = false;
 	public TrieNode() {
 		next = new TrieNode[CHAR_NUM];
 	}
