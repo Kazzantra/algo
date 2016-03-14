@@ -31,7 +31,7 @@ public class Producer implements Runnable {
 			io.pl("Produced " + i);
 			try {
 				produce(i);
-				//Thread.sleep(10);
+				Thread.sleep(10);
 			} catch(Exception e) {
 				e.printStackTrace();
 			}
