@@ -66,10 +66,6 @@ public class Trie {
 		return false;
 	}
 	public boolean containsAbbr(String s) {
-		if(s == null)
-			return false;
-		if(s.length() == 0)
-			return true;
 		return searchAbbrFromNode(s, dummy);
 	}
 	private boolean searchAbbrFromNode(String s, TrieNode node) {
