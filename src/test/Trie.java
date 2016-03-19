@@ -109,6 +109,6 @@ public class Trie {
 	public static void main(String[] args) {
 		Trie trie = new Trie();
 		trie.add("RuntimeException");
-		io.pl(trie.containsAbbr("RuntimeE"));
+		io.pl(trie.containsAbbr("RE"));
 	}
 }
